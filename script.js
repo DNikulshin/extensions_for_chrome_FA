@@ -20,7 +20,7 @@ const data = {url, type: 'hh' };
 
 const request = async () => {
     try {
-        const response = await fetch(`http://45.139.24.92/api/resume/search`, {
+        const response = await fetch(`https://46.44.24.51/api/resume/search`, {
           method: "POST", // или 'PUT'
           body: JSON.stringify(data), // данные могут быть 'строкой' или {объектом}!
           headers: {
@@ -55,3 +55,10 @@ btn.addEventListener('click', async () => {
 const data = await request()
 console.log(data);
 })
+
+const urlType = window.location.href.split('/')[2]
+const position = decodeURI(window.location.search).split('&text=')[1]
+console.log(urlType, 'urlType');
+console.log(position, 'position');
+
+document.body.prepend(position)
