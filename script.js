@@ -29,6 +29,7 @@ const request = async () => {
         });
         const json = await response.json();
         console.log("Успех:", JSON.stringify(json));
+        return json
       } catch (error) {
         console.error("Ошибка:", error);
       }
@@ -55,10 +56,9 @@ btn.addEventListener('click', async () => {
 const data = await request()
 console.log(data);
 })
+    const urlType = window.location.href.split('/')[2]
+    const position = decodeURI(window.location.href).split('&text=')[1]
+    console.log(urlType, 'urlType');
+    console.log(position, 'position');
 
-const urlType = window.location.href.split('/')[2]
-const position = decodeURI(window.location.search).split('&text=')[1]
-console.log(urlType, 'urlType');
-console.log(position, 'position');
-
-document.body.prepend(position)
+    document.body.prepend(position)
